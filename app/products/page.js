@@ -1,11 +1,11 @@
-// Хуучин байсан: import { getProducts } from "@/services/productsClient";
-// Шинэ (зассан):
-import { getProducts } from "../../services/productsClient";
 import Link from "next/link";
 
-export default async function ProductsPage() {
-  const products = await getProducts();
+const products = [
+  { id: 1, title: "iPhone 15", price: 1000, description: "Apple flagship" },
+  { id: 2, title: "MacBook Air", price: 1200, description: "M3 chip" },
+];
 
+export default async function ProductsPage() {
   return (
     <div className="p-8">
       <h1 className="text-2xl font-bold mb-4">Манай бараанууд</h1>
