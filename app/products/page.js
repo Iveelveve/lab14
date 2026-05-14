@@ -1,9 +1,7 @@
 import Link from "next/link";
-import { getProducts } from "../../services/productsClient";
+import { products } from "../../lib/data";
 
-export default async function ProductsPage() {
-  const products = await getProducts();
-
+export default function ProductsPage() {
   return (
     <main className="p-8">
       <h1 className="text-2xl font-bold mb-4">Манай бараанууд</h1>
