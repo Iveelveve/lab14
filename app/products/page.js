@@ -1,9 +1,16 @@
+"use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { products } from "../../lib/data";
-
-export const dynamic = "force-dynamic";
 
 export default function ProductsPage() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, []);
+
   return (
     <main className="p-8">
       <h1 className="text-2xl font-bold mb-4">Манай бараанууд</h1>
