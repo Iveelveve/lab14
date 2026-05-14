@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { products } from "../../lib/data";
 
+export const dynamic = "force-dynamic";
+
 export default function ProductsPage() {
   return (
     <main className="p-8">
