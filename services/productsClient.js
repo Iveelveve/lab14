@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000/api/products";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "/api/products";
 
 export const getProducts = async () => {
   const res = await fetch(API_URL, { cache: "no-store" });
@@ -7,17 +7,14 @@ export const getProducts = async () => {
 };
 
 export const createProduct = async (productData) => {
-  const res = await fetch("http://localhost:3000/api/products", {
+  const res = await fetch(API_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(productData),
   });
-
-  
   if (!res.ok) {
     const errorData = await res.json();
-    return errorData; 
+    return errorData;
   }
-
-  return res.json(); 
+  return res.json();
 };
