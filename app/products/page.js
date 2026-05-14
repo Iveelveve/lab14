@@ -1,8 +1,8 @@
 import Link from "next/link";
+import { getProducts } from "../../services/productsClient";
 
 export default async function ProductsPage() {
-  const res = await fetch("http://localhost:3000/api/products", { cache: "no-store" });
-  const products = await res.json();
+  const products = await getProducts();
 
   return (
     <main className="p-8">
