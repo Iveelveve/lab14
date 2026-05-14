@@ -1,11 +1,9 @@
 import Link from "next/link";
 
-const products = [
-  { id: 1, title: "iPhone 15", price: 1000, description: "Apple flagship" },
-  { id: 2, title: "MacBook Air", price: 1200, description: "M3 chip" },
-];
-
 export default async function ProductsPage() {
+  const res = await fetch("http://localhost:3000/api/products", { cache: "no-store" });
+  const products = await res.json();
+
   return (
     <main className="p-8">
       <h1 className="text-2xl font-bold mb-4">Манай бараанууд</h1>
